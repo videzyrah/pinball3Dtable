@@ -15,10 +15,11 @@ public class CanonController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-      if(Input.GetKeyDown(KeyCode.Space) && canonAmmoCount > 0)
+      if(Input.GetKeyDown(KeyCode.UpArrow) && canonAmmoCount > 0)
 		{
 			//Launch a projectile from canon
 			Instantiate(projectilePrefab, new Vector3(transform.position.x, 0.05f ,transform.position.z), projectilePrefab.transform.rotation);
+       Debug.Log("Up Arrow key was pressed.");
 		}  
     }
 }

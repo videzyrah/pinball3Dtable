@@ -5,7 +5,7 @@ using UnityEngine;
 public class WedgeController : MonoBehaviour
 {
     public int framecount = 0;
-	public int stopCount = 400;
+	public int stopCount = 100;
     private Rigidbody  Rb;
     // Start is called before the first frame update
     void Start()
@@ -19,16 +19,17 @@ public class WedgeController : MonoBehaviour
     {
         if (framecount < stopCount){
           
-          //transform.Translate(0, 0, -Time.deltaTime); (can use with "is  kinematic")
+          //(can use with "is  kinematic")
+          transform.Translate(0, 0, -Time.deltaTime);
           //Rb.AddForce(-Vector3.forward * 5.0f, ForceMode.Impulse);
-          Rb.velocity = new Vector3(0,0,-1);
-          Debug.Log("Move down please");
+          //Rb.velocity = new Vector3(0,0,-1);
+          //Debug.Log("Move down please");
 		  framecount++;
 		} 
         if (framecount >= stopCount && framecount < stopCount * 2){
-
-          Rb.velocity = new Vector3(0,0,1);
-          Debug.Log("Move up please");
+          transform.Translate(0, 0, Time.deltaTime); 
+          //Rb.velocity = new Vector3(0,0,1);
+          //Debug.Log("Move up please");
 		  framecount++;
 		} 
         if(framecount >= stopCount * 2){
